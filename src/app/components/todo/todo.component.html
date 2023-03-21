@@ -1,0 +1,21 @@
+<div class="card p-4">
+    <h1>Todos </h1>
+    <table class="table table-striped" *ngIf="todos$ | async as todos">
+        <tr>
+            <td>ID</td>
+            <td>Todo</td>
+            <td>Done</td>
+        </tr>
+        <tr *ngFor="let todo of todos">
+            <td>{{ todo?.id }}</td>
+            <td>{{ todo.todo }}</td>
+            <td>{{ todo.done }}</td>
+
+            <td>
+                <button class="btn btn-danger" (click)="deleteTodo(todo.id)">delete</button>
+                <button class="btn btn-success mx-1" (click)="setCompleted(todo.id)">complete</button>
+            </td>
+        </tr>
+
+    </table>
+</div>
